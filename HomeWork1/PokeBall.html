@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <HTML>
 		<BODY>
-			<canvas id='Homework1' width='5000' height='4000'/>
+			<canvas id='Homework1' width='1980' height='1020' style="background: #00F1F0;"/>
 			<script>
 				let canvas = document.getElementById("Homework1");
 				let context = canvas.getContext("2d");		
 
 			
-				var posx = 900;
-				var posy = 2500;
+				var posx = 90;
+				var posy = 900;
 
 
 				function draw() {
-
-
-					context.fillStyle = '#FFFFFF';
+ 
+					context.fillStyle = '#00F1F0';
 					
-					const radius = 70;
+					const radius = 30;
 					context.beginPath();
 					context.arc(posx, posy, radius, 0, 2 * Math.PI, false);
 				
 					context.fill();
 					context.lineWidth = 8;
-					context.strokeStyle = '#FFF';
+					context.strokeStyle = '#00F1F0';
 					context.stroke();	
 						
-					
-					posy=posy-15;
-					posx=posx + Math.ceil(Math.sqrt(posy));
-
+					if (posy < 990){
+						posy=posy-15;
+					}
+					else{
+						posy=posy+15;
+					}
+					if (posx < 1950){					posx=posx + Math.ceil(Math.sqrt(posy));
+						posx=posx + Math.ceil(Math.sqrt(posy));
+					}
+					else{
+						posx=posx - Math.ceil(Math.sqrt(posy));
+					}
 				
 
 
@@ -66,4 +73,3 @@
 			</script>
 		</BODY>
 </HTML>
-
