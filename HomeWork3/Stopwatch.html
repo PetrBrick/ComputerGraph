@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<HTML>
+<BODY>
+		<canvas id = 'HomeWork3' width="1920" height="1080" style="background: #F1F0F0;"/>
+		<SCRIPT>
+			let canvas = document.getElementById('HomeWork3');
+			let context = canvas.getContext('2d');
+			
+			var x0 = 990;
+			var y0 = 510;
+			var rad = 1.57;
+			var x1 = x0 + 75 * Math.cos(rad);
+			var y1 = y0 - 75 * Math.sin(rad);
+			var deltaX;
+			var deltaY;
+			var error = 0;
+			var deltaERROR;
+			var degree = 0;
+			
+			function draw(){
+			
+			context.clearRect(0,0,canvas.width, canvas.height);
+			
+			context.beginPath();
+			context.arc(x0, y0, 80, 0, 2*Math.PI);
+			context.strokeStyle=  '#000000';
+			context.lineWidth = 5;
+			context.fillStyle = '#F1F0F0';
+			context.fill();
+			context.stroke();
+			context.closePath();
+			
+			deltaX = Math.abs(x1 - x0);
+			deltaY = Math.abs(y1 - y0);
+			
+			context.fillStyle = '#AABB40';
+			
+			if (degree >= 0 && degree < 45){
+			deltaERROR = deltaX + 1;
+			
+			x = x0;
+			
+			for (var y = y0; y >= y1; y--){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaY + 1) {
+					x += 1;
+					error -= deltaY + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			return;
+			}
+			
+			if (degree >= 45 && degree < 90){
+			deltaERROR = deltaY + 1;
+			
+			y = y0;
+			
+			for (var x = x0; x <= x1; x++){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaX + 1) {
+					y -= 1;
+					error -= deltaX + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			return;
+			}
+			
+			if (degree >= 90 && degree < 135){
+			deltaERROR = deltaY + 1;
+			
+			y = y0;
+			
+			for (var x = x0; x <= x1; x++){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaX + 1) {
+					y += 1;
+					error -= deltaX + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			return;
+			}
+			
+			if (degree > 135 && degree <= 180){
+			deltaERROR = deltaX + 1;
+			
+			x = x0;
+			
+			for (var y = y0; y <= y1; y++){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaY + 1) {
+					x += 1;
+					error -= deltaY + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			return;
+			}
+			
+			if (degree >= 180 && degree < 225){
+			deltaERROR = deltaX + 1;
+			
+			x = x0;
+			
+			for (var y = y0; y <= y1; y++){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaY + 1) {
+					x -= 1;
+					error -= deltaY + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			return;
+			}
+			
+			if (degree >= 225 && degree < 270){
+			deltaERROR = deltaY + 1;
+			
+			y = y0;
+			
+			for (var x = x0; x >= x1; x--){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaX + 1) {
+					y += 1;
+					error -= deltaX + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			return;
+			}
+			
+			if (degree >= 270 && degree < 315){
+			deltaERROR = deltaY + 1;
+			
+			y = y0;
+			
+			for (var x = x0; x >= x1; x--){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaX + 1) {
+					y -= 1;
+					error -= deltaX + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			return;
+			}
+
+		
+			if (degree >= 315 && degree < 360){
+			deltaERROR = deltaX + 1;
+			
+			x = x0;
+			
+			for (var y = y0; y >= y1; y--){
+				context.fillRect(x, y, 3, 3);
+				error += deltaERROR;
+				if (error >= deltaY + 1) {
+					x -= 1;
+					error -= deltaY + 1;
+				}
+			}
+			
+			rad -= 0.105;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			degree += 6;
+			
+			if (degree == 354){
+			degree = 0;
+			rad = 1.57;
+			x1 = x0 + 75 * Math.cos(rad);
+			y1 = y0 - 75 * Math.sin(rad);
+			}
+			
+			return;
+			}
+		}
+		
+		setInterval(draw, 1000);
+		</SCRIPT>
+</BODY>
+</HTML>
